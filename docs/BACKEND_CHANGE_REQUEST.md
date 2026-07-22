@@ -7,7 +7,7 @@
 
 The SDK is a browser softphone: it needs per-agent SIP registration credentials
 (`extension`, `password`, `sipUri`, `sipDomain`, `displayName`, `wssUrl`,
-`iceServers`) which it feeds to sip.js to REGISTER over WSS.
+`iceServers`) which it uses to REGISTER over WSS.
 
 The session-authenticated Blull application obtains those credentials from:
 

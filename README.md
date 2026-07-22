@@ -3,11 +3,10 @@
 > Embed Blull browser calling in any website — a WebRTC softphone over SIP.
 
 `@blull/voip` turns a browser into a softphone that registers to the **Blull
-VoIP server** and makes/receives real phone calls. It wraps [sip.js](https://sipjs.com)
-(SIP over secure WebSocket + WebRTC) behind a small, typed API: `connect`,
-`dial`, `accept`/`reject`, `hangup`, `mute`, DTMF, and device selection — with
-events for registration and call state. There is a framework-agnostic core and
-an optional React adapter.
+VoIP server** and makes/receives real phone calls over SIP (secure WebSocket +
+WebRTC). It exposes a small, typed API: `connect`, `dial`, `accept`/`reject`,
+`hangup`, `mute`, DTMF, and device selection — with events for registration and
+call state. There is a framework-agnostic core and an optional React adapter.
 
 - **Framework-agnostic core** — `@blull/voip`
 - **React adapter** — `@blull/voip/react` (`<SoftphoneProvider>` + `useSoftphone()`)
@@ -18,8 +17,6 @@ an optional React adapter.
 npm install @blull/voip
 # React adapter also needs react >= 18 (a peer dependency you already have)
 ```
-
-`sip.js` is bundled as a dependency; you do not install it separately.
 
 ## Security model — where the API Token lives
 
@@ -175,7 +172,7 @@ Full page in [`examples/vanilla`](examples/vanilla).
 | `media.outputDeviceId`| `string`                               | browser default                | Speaker `deviceId` (`setSinkId`). |
 | `media.ringback`      | `boolean`                              | `true`                         | Local ringback tone while dialing. |
 | `normalizePhoneNumber`| `(raw: string) => string`              | Brazilian ninth-digit          | Return `''` to reject a number. |
-| `logLevel`            | `'debug' \| 'warn' \| 'error' \| 'silent'` | `'warn'`                   | Forwarded to sip.js. |
+| `logLevel`            | `'debug' \| 'warn' \| 'error' \| 'silent'` | `'warn'`                   | SDK log verbosity. |
 
 ### `Softphone`
 
@@ -238,8 +235,8 @@ keypad feedback), `listAudioDevices`, `requestMicrophoneAccess`, `isBrowser`.
   user granting microphone access.
 - **One call at a time.** A second inbound INVITE while a call is live is
   auto-rejected; `dial()` throws if a call is in progress.
-- Mirrors the softphone shipped in the Blull dashboard (`sip.js` `UserAgent` /
-  `Registerer` / `Inviter` / `Invitation`), generalised for third-party sites.
+- Mirrors the softphone shipped in the Blull dashboard, generalised for
+  third-party sites.
 
 ## Development
 

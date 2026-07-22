@@ -39,7 +39,7 @@ Browser (SDK)  ──credentialsProvider()──►  Your backend  ──API Tok
 > Blull exposes `POST /voip/credentials` for API-Token integrations. It accepts
 > `{ "sipUserId": "…" }`; reseller keys select an authorized child tenant with
 > `x-blull-tenant-id`. See the complete
-> [backend contract](docs/BACKEND_CHANGE_REQUEST.md).
+> [API-Token credentials guide](docs/API_TOKEN_CREDENTIALS.md).
 
 ### Associate each operator with a ramal
 

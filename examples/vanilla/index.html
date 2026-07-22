@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@blull/voip — vanilla softphone</title>
+  </head>
+  <body>
+    <h1>Blull softphone</h1>
+    <p>Registration: <strong id="status">idle</strong></p>
+    <button id="connect" type="button">Connect</button>
+
+    <p>
+      <input id="number" placeholder="(11) 91234-5678" />
+      <button id="call" type="button">Call</button>
+      <button id="hangup" type="button">Hang up</button>
+      <button id="mute" type="button">Mute</button>
+    </p>
+
+    <p>
+      Keypad:
+      <button id="key-1" type="button">1</button>
+      <button id="key-2" type="button">2</button>
+      <button id="key-3" type="button">3</button>
+    </p>
+
+    <p>Call: <strong id="call-state">—</strong></p>
+
+    <!-- Bundle main.ts with your tool of choice (Vite, esbuild, ...). -->
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

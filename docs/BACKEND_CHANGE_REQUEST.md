@@ -7,7 +7,7 @@
 
 The SDK is a browser softphone: it needs per-agent SIP registration credentials
 (`extension`, `password`, `sipUri`, `sipDomain`, `displayName`, `wssUrl`,
-`iceServers`) which it uses to REGISTER over WSS.
+`iceServers`) to REGISTER with the VoIP server over WSS.
 
 The session-authenticated Blull application obtains those credentials from:
 
@@ -16,7 +16,7 @@ GET /voip/credentials/me      @Auth()  →  keyed to { userId, tenantId } of the
 ```
 
 That endpoint is guarded by the user-session guard (`@Auth()`) and always returns
-*the calling user's own* extension. A third-party website embedding the SDK has
+_the calling user's own_ extension. A third-party website embedding the SDK has
 **no logged-in Blull user** — it authenticates with a **tenant API Token**
 (`blull_sk_…`) or a **reseller API key** (acting inside a child tenant via the
 `x-blull-tenant-id` header) and needs credentials for **a specific agent /
